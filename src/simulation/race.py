@@ -1,5 +1,23 @@
 import random
 
+def calculate_driver_performance(driver):
+    return (
+        driver.experience +
+        driver.qualifying_pace +
+        driver.race_pace +
+        driver.wet_skill +
+        driver.consistency +
+        driver.overtaking +
+        driver.defending +
+        driver.cornering +
+        driver.smoothness +
+        driver.braking +
+        driver.adaptability +
+        driver.reaction_time +
+        driver.control +
+        driver.accuracy +
+        driver.aggressiveness
+    ) / 15
 
 def calculate_car_performance(car):
     return (
@@ -22,17 +40,19 @@ def calculate_car_performance(car):
         car.hybrid_reliability +
         car.energy_strategy
     ) / 18
+    
 
 
 def simulate_race(entries):
     results = []
 
     for driver, car in entries:
-
+        
+        driver_performance = calculate_driver_performance(driver)
         car_performance = calculate_car_performance(car)
 
         score = (
-            driver.race_pace * 0.6 +
+            driver_performance * 0.6 +
             car_performance * 0.4 +
             random.uniform(-5, 5)
         )

@@ -1,28 +1,29 @@
-from src.models.driver import Driver
-from src.models.car import Car
+from src.data.drivers_data import verstappen, norris, leclerc
+from src.data.cars_data import rb26, mcl40, sf26
+
 from src.simulation.race import simulate_race
 
-
-Verstappen = Driver("Verstappen", 98, 99, 100, 95, 97, 96, 94, 93, 92, 91, 95, 98, 97, 96, 98)
-Norris = Driver("Norris", 95, 96, 95, 90, 94, 92, 90, 89, 88, 90, 92, 93, 92, 91, 93)
-Leclerc = Driver("Leclerc", 94, 95, 94, 92, 93, 91, 89, 90, 91, 90, 91, 92, 91, 92, 91)
-
-
-
-RB26 = Car("RB26", 96, 97, 99, 98, 100, 95, 95, 95, 92, 100, 99, 92, 94, 95, 94, 96, 93, 95)
-MCL40 = Car("MCL40", 97, 96, 96, 99, 98, 94, 97, 94, 94, 98, 97, 95, 96, 94, 95, 94, 96, 94)
-SF26 = Car("SF-26", 100, 98, 95, 96, 95, 90, 92, 99, 91, 94, 94, 91, 93, 93, 94, 95, 92, 93)
-
-
 entries = [
-    (Verstappen, RB26),
-    (Norris, MCL40),
-    (Leclerc, SF26)
+    (verstappen, rb26),
+    (norris, mcl40),
+    (leclerc, sf26)
 ]
 
-results = simulate_race(entries)
+wins = {
+    "Verstappen": 0,
+    "Norris": 0,
+    "Leclerc": 0
+}
 
-print("\n=== RACE RESULTS ===\n")
+for _ in range(10000):
+    results = simulate_race(entries)
 
-for position, (driver, score) in enumerate(results, start=1):
-    print(f"{position}. {driver.name} - {score:.2f}")
+    winner = results[0][0].name
+
+    wins[winner] += 1
+
+print("\n=== WIN DISTRIBUTION AFTER 10000 RACES ===\n")
+
+for driver, victories in wins.items():
+    percentage = victories / 10000 * 100
+    print(f"{driver}: {victories} wins ({percentage:.2f}%)")
