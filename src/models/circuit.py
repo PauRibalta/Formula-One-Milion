@@ -4,27 +4,27 @@ from dataclasses import dataclass
 class Circuit:
     name: str
 
-    low_speed_importance: int
-    medium_speed_importance: int
-    high_speed_importance: int
+    low_speed_importance: float
+    medium_speed_importance: float
+    high_speed_importance: float
 
-    top_speed_importance: int
-    acceleration_importance: int
+    top_speed_importance: float
+    acceleration_importance: float
 
-    tyre_degradation: int
+    tyre_degradation: float
 
-    engine_stress: int
-    cooling_requirement: int
+    engine_stress: float
+    cooling_requirement: float
 
-    aerodynamics_importance: int
+    aerodynamics_importance: float
 
-    energy_recovery_potential: int
+    energy_recovery_potential: float
 
-    overtaking_difficulty: int
+    overtaking_difficulty: float
 
-    rain_probability: int
+    rain_probability: float
 
     pit_stop_time: float
 
-    qualifying_importance: int
-    safety_car_probability: int
+    qualifying_importance: float
+    safety_car_probability: float
