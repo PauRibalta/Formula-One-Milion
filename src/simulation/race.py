@@ -91,6 +91,7 @@ def simulate_race(entries, circuit):
 
         driver = entry.driver
         car = entry.car
+        team = entry.team
 
         driver_performance = calculate_driver_performance(driver)
 

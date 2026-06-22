@@ -12,3 +12,4 @@ class Team:
     reliability_management: int
 
     facilities: int
+    budget: int
