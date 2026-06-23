@@ -17,6 +17,7 @@ class Circuit:
     cooling_requirement: float
 
     aerodynamics_importance: float
+    downforce_importance: float
 
     energy_recovery_potential: float
 

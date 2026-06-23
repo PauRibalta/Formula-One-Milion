@@ -53,7 +53,7 @@ def calculate_circuit_bonus(car, circuit):
         circuit.top_speed_importance +
         circuit.acceleration_importance +
         circuit.aerodynamics_importance +
-        circuit.aerodynamics_importance +
+        circuit.downforce_importance +
         circuit.cooling_requirement +
         circuit.energy_recovery_potential
     )
@@ -65,7 +65,7 @@ def calculate_circuit_bonus(car, circuit):
         car.top_speed * circuit.top_speed_importance +
         car.acceleration * circuit.acceleration_importance +
         car.aerodynamics * circuit.aerodynamics_importance +
-        car.downforce * circuit.aerodynamics_importance +
+        car.downforce * circuit.downforce_importance +
         car.engine_cooling * circuit.cooling_requirement +
         car.energy_recovery * circuit.energy_recovery_potential
     ) / total_weight
@@ -81,6 +81,20 @@ def calculate_car_performance(car, circuit):
         base_performance * 0.7 +
         circuit_bonus * 0.3
     )
+    
+def calculate_team_performance(team):
+    return (
+        team.strategy +
+        team.pit_stops +
+        team.race_operations +
+        team.development_rate +
+        team.technical_staff +
+        team.reliability_management +
+        team.facilities +
+        team.wind_tunnel +
+        team.budget +
+        team.winning_culture
+    ) / 10
 
 
 def simulate_race(entries, circuit):
@@ -99,10 +113,13 @@ def simulate_race(entries, circuit):
             car,
             circuit
         )
+        
+        team_performance = calculate_team_performance(team)
 
         score = (
-            driver_performance * 0.6 +
+            driver_performance * 0.5 +
             car_performance * 0.4 +
+            team_performance * 0.1 +
             random.uniform(-5, 5)
         )
 
