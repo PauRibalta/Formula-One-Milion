@@ -1,40 +1,104 @@
-from src.data.drivers_data import verstappen, norris, leclerc
-from src.data.cars_data import rb26, mcl40, sf26
-from src.data.teams_data import red_bull, mclaren, ferrari
-from src.data.circuits_data import monza
-
 from src.models.entry import Entry
 
-from src.simulation.race import simulate_race
+from src.data.drivers_data import *
+from src.data.cars_data import *
+from src.data.teams_data import *
+from src.data.circuits_data import *
+
+from src.simulation.race import (
+    calculate_driver_performance,
+    calculate_car_performance,
+    calculate_team_performance
+)
+
 
 entries = [
+
     Entry(verstappen, rb26, red_bull),
+    Entry(hadjar, rb26, red_bull),
+
     Entry(norris, mcl40, mclaren),
-    Entry(leclerc, sf26, ferrari)
+    Entry(piastri, mcl40, mclaren),
+
+    Entry(leclerc, sf26, ferrari),
+    Entry(hamilton, sf26, ferrari),
+
+    Entry(russell, w17, mercedes),
+    Entry(antonelli, w17, mercedes),
+
+    Entry(alonso, amr26, aston_martin),
+    Entry(stroll, amr26, aston_martin),
+
+    Entry(sainz, fw48, williams),
+    Entry(albon, fw48, williams),
+
+    Entry(gasly, a526, alpine),
+    Entry(colapinto, a526, alpine),
+
+    Entry(ocon, vf26, haas),
+    Entry(bearman, vf26, haas),
+
+    Entry(hulkenberg, r26, audi),
+    Entry(bortoleto, r26, audi),
+
+    Entry(lawson, vcarb02, racing_bulls),
+    Entry(lindblad, vcarb02, racing_bulls),
+
+    Entry(perez, c01, cadillac),
+    Entry(bottas, c01, cadillac),
 ]
 
-wins = {
-    "Verstappen": 0,
-    "Norris": 0,
-    "Leclerc": 0
-}
 
-for _ in range(10000):
+circuit = monza
 
-    results = simulate_race(entries, monza)
+print(f"\n========== {circuit.name.upper()} ==========\n")
 
-    winner = results[0][0].name
+ranking = []
 
-    wins[winner] += 1
+for entry in entries:
 
-print("\n=== WIN DISTRIBUTION AFTER 10000 RACES ===\n")
+    driver_score = calculate_driver_performance(entry.driver)
+    car_score = calculate_car_performance(entry.car, circuit)
+    team_score = calculate_team_performance(entry.team)
 
-for driver, victories in wins.items():
+    final_score = (
+        driver_score * 0.5 +
+        car_score * 0.4 +
+        team_score * 0.1
+    )
 
-    percentage = victories / 10000 * 100
+    ranking.append({
+        "driver": entry.driver.name,
+        "team": entry.team.name,
+        "car": driver_score,
+        "car_perf": car_score,
+        "team_perf": team_score,
+        "final": final_score
+    })
+
+ranking.sort(
+    key=lambda x: x["final"],
+    reverse=True
+)
+
+print(
+    f"{'Driver':<12}"
+    f"{'Team':<16}"
+    f"{'Driver':>10}"
+    f"{'Car':>10}"
+    f"{'Team':>10}"
+    f"{'Final':>10}"
+)
+
+print("-" * 68)
+
+for data in ranking:
 
     print(
-        f"{driver}: "
-        f"{victories} wins "
-        f"({percentage:.2f}%)"
+        f"{data['driver']:<12}"
+        f"{data['team']:<16}"
+        f"{data['car']:>10.2f}"
+        f"{data['car_perf']:>10.2f}"
+        f"{data['team_perf']:>10.2f}"
+        f"{data['final']:>10.2f}"
     )

@@ -1,23 +1,166 @@
 from src.models.team import Team
 
-mercedes = Team("Mercedes",98, 98, 98,99, 98,98, 98, 98, 98, 97)
+# MERCEDES (~98.0)
+mercedes = Team(
+    "Mercedes",
+    98,  # Strategy
+    98,  # Pit Stops
+    98,  # Race Operations
+    99,  # Development Rate
+    98,  # Technical Staff
+    98,  # Reliability Management
+    98,  # Facilities
+    98,  # Wind Tunnel
+    98,  # Budget
+    97   # Winning Culture
+)
 
-mclaren = Team("McLaren",98, 97, 97,97, 97,97,96, 97,97,97)
+# McLAREN (~97.3)
+mclaren = Team(
+    "McLaren",
+    98,  # Strategy
+    97,  # Pit Stops
+    97,  # Race Operations
+    97,  # Development Rate
+    97,  # Technical Staff
+    97,  # Reliability Management
+    96,  # Facilities
+    97,  # Wind Tunnel
+    97,  # Budget
+    97   # Winning Culture
+)
 
-red_bull = Team("Red Bull",99, 100, 98,95, 96,96,95, 95,93,98)
+# RED BULL (~96.5)
+red_bull = Team(
+    "Red Bull",
+    99,   # Strategy
+    100,  # Pit Stops
+    98,   # Race Operations
+    95,   # Development Rate
+    96,   # Technical Staff
+    96,   # Reliability Management
+    95,   # Facilities
+    95,   # Wind Tunnel
+    93,   # Budget
+    98    # Winning Culture
+)
 
-ferrari = Team("Ferrari",93, 93, 94,96, 96,95,97, 98,97,93)
+# FERRARI (~95.5)
+ferrari = Team(
+    "Ferrari",
+    91,  # Strategy
+    94,  # Pit Stops
+    93,  # Race Operations
+    96,  # Development Rate
+    96,  # Technical Staff
+    95,  # Reliability Management
+    98,  # Facilities
+    98,  # Wind Tunnel
+    98,  # Budget
+    96   # Winning Culture
+)
 
-aston_martin = Team("Aston Martin",90, 90, 91,94, 96,90,93, 93,92,86)
+# ASTON MARTIN (~91.4)
+aston_martin = Team(
+    "Aston Martin",
+    89,  # Strategy
+    89,  # Pit Stops
+    90,  # Race Operations
+    93,  # Development Rate
+    95,  # Technical Staff
+    90,  # Reliability Management
+    94,  # Facilities
+    94,  # Wind Tunnel
+    94,  # Budget
+    86   # Winning Culture
+)
 
-alpine = Team("Alpine",89, 89, 89,89, 89,89,89, 89,89,89)
+# ALPINE (~88.5)
+alpine = Team(
+    "Alpine",
+    87,  # Strategy
+    88,  # Pit Stops
+    88,  # Race Operations
+    91,  # Development Rate
+    90,  # Technical Staff
+    88,  # Reliability Management
+    89,  # Facilities
+    89,  # Wind Tunnel
+    88,  # Budget
+    87   # Winning Culture
+)
 
-racing_bulls = Team("Racing Bulls",89, 90, 88,88, 87,87,87, 87,87,86)
+# RACING BULLS (~87.6)
+racing_bulls = Team(
+    "Racing Bulls",
+    89,  # Strategy
+    90,  # Pit Stops
+    88,  # Race Operations
+    88,  # Development Rate
+    87,  # Technical Staff
+    87,  # Reliability Management
+    87,  # Facilities
+    87,  # Wind Tunnel
+    87,  # Budget
+    86   # Winning Culture
+)
 
-audi = Team("Audi",86, 86, 86,88, 87,86,87, 87,88,85)
+# AUDI (~87.0)
+audi = Team(
+    "Audi",
+    86,  # Strategy
+    86,  # Pit Stops
+    86,  # Race Operations
+    88,  # Development Rate
+    87,  # Technical Staff
+    86,  # Reliability Management
+    89,  # Facilities
+    87,  # Wind Tunnel
+    90,  # Budget
+    85   # Winning Culture
+)
 
-williams = Team("Williams",86, 86, 86,86, 86,85,87, 86,86,86)
+# WILLIAMS (~86.7)
+williams = Team(
+    "Williams",
+    87,  # Strategy
+    87,  # Pit Stops
+    87,  # Race Operations
+    89,  # Development Rate
+    87,  # Technical Staff
+    86,  # Reliability Management
+    88,  # Facilities
+    87,  # Wind Tunnel
+    84,  # Budget
+    85   # Winning Culture
+)
 
-haas = Team("Haas",84, 85, 84,84, 83,84,84, 83,85,84)
+# HAAS (~84.0)
+haas = Team(
+    "Haas",
+    84,  # Strategy
+    85,  # Pit Stops
+    84,  # Race Operations
+    84,  # Development Rate
+    83,  # Technical Staff
+    84,  # Reliability Management
+    84,  # Facilities
+    83,  # Wind Tunnel
+    85,  # Budget
+    84   # Winning Culture
+)
 
-cadillac = Team("Cadillac",81, 82, 81,84, 83,81,82, 82,84, 80)
+# CADILLAC (~82.0)
+cadillac = Team(
+    "Cadillac",
+    81,  # Strategy
+    82,  # Pit Stops
+    81,  # Race Operations
+    84,  # Development Rate
+    83,  # Technical Staff
+    81,  # Reliability Management
+    82,  # Facilities
+    82,  # Wind Tunnel
+    84,  # Budget
+    80   # Winning Culture
+)

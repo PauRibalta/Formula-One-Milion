@@ -1,27 +1,51 @@
 import random
 
+# ==========================
+# DRIVER WEIGHTS
+# ==========================
+
+DRIVER_WEIGHTS = {
+    "experience": 0.03,
+    "qualifying_pace": 0.10,
+    "race_pace": 0.20,
+    "wet_skill": 0.04,
+    "consistency": 0.13,
+    "overtaking": 0.05,
+    "defending": 0.04,
+    "cornering": 0.10,
+    "smoothness": 0.06,
+    "braking": 0.05,
+    "adaptability": 0.05,
+    "reaction_time": 0.03,
+    "control": 0.07,
+    "accuracy": 0.03,
+    "aggressiveness": 0.02,
+}
+
 
 def calculate_driver_performance(driver):
+
     return (
-        driver.experience +
-        driver.qualifying_pace +
-        driver.race_pace +
-        driver.wet_skill +
-        driver.consistency +
-        driver.overtaking +
-        driver.defending +
-        driver.cornering +
-        driver.smoothness +
-        driver.braking +
-        driver.adaptability +
-        driver.reaction_time +
-        driver.control +
-        driver.accuracy +
-        driver.aggressiveness
-    ) / 15
+        driver.experience * DRIVER_WEIGHTS["experience"] +
+        driver.qualifying_pace * DRIVER_WEIGHTS["qualifying_pace"] +
+        driver.race_pace * DRIVER_WEIGHTS["race_pace"] +
+        driver.wet_skill * DRIVER_WEIGHTS["wet_skill"] +
+        driver.consistency * DRIVER_WEIGHTS["consistency"] +
+        driver.overtaking * DRIVER_WEIGHTS["overtaking"] +
+        driver.defending * DRIVER_WEIGHTS["defending"] +
+        driver.cornering * DRIVER_WEIGHTS["cornering"] +
+        driver.smoothness * DRIVER_WEIGHTS["smoothness"] +
+        driver.braking * DRIVER_WEIGHTS["braking"] +
+        driver.adaptability * DRIVER_WEIGHTS["adaptability"] +
+        driver.reaction_time * DRIVER_WEIGHTS["reaction_time"] +
+        driver.control * DRIVER_WEIGHTS["control"] +
+        driver.accuracy * DRIVER_WEIGHTS["accuracy"] +
+        driver.aggressiveness * DRIVER_WEIGHTS["aggressiveness"]
+    )
 
 
 def calculate_base_car_performance(car):
+
     return (
         car.top_speed +
         car.acceleration +
@@ -81,8 +105,10 @@ def calculate_car_performance(car, circuit):
         base_performance * 0.7 +
         circuit_bonus * 0.3
     )
-    
+
+
 def calculate_team_performance(team):
+
     return (
         team.strategy +
         team.pit_stops +
@@ -108,18 +134,13 @@ def simulate_race(entries, circuit):
         team = entry.team
 
         driver_performance = calculate_driver_performance(driver)
-
-        car_performance = calculate_car_performance(
-            car,
-            circuit
-        )
-        
+        car_performance = calculate_car_performance(car, circuit)
         team_performance = calculate_team_performance(team)
 
         score = (
-            driver_performance * 0.5 +
-            car_performance * 0.4 +
-            team_performance * 0.1 +
+            driver_performance * 0.40 +
+            car_performance * 0.50 +
+            team_performance * 0.10 +
             random.uniform(-5, 5)
         )
 
