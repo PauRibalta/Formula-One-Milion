@@ -123,32 +123,53 @@ def calculate_team_performance(team):
     ) / 10
 
 
-def simulate_race(entries, circuit):
+def calculate_base_score(entry, circuit):
 
-    results = []
+    driver_performance = calculate_driver_performance(entry.driver)
+    car_performance = calculate_car_performance(entry.car, circuit)
+    team_performance = calculate_team_performance(entry.team)
+
+    return (
+        driver_performance * 0.40 +
+        car_performance * 0.50 +
+        team_performance * 0.10
+    )
+
+
+def simulate_race(entries, circuit, forms):
+
+    expected_results = []
+    race_results = []
 
     for entry in entries:
 
         driver = entry.driver
-        car = entry.car
         team = entry.team
 
-        driver_performance = calculate_driver_performance(driver)
-        car_performance = calculate_car_performance(car, circuit)
-        team_performance = calculate_team_performance(team)
+        base_score = calculate_base_score(entry, circuit)
 
-        score = (
-            driver_performance * 0.40 +
-            car_performance * 0.50 +
-            team_performance * 0.10 +
-            random.uniform(-5, 5)
+        expected_results.append(
+            (driver, base_score, team)
         )
 
-        results.append((driver, score))
+        final_score = (
+            base_score +
+            forms[driver.name] +
+            random.uniform(-3, 3)
+        )
 
-    results.sort(
+        race_results.append(
+            (driver, final_score, team)
+        )
+
+    expected_results.sort(
         key=lambda result: result[1],
         reverse=True
     )
 
-    return results
+    race_results.sort(
+        key=lambda result: result[1],
+        reverse=True
+    )
+
+    return expected_results, race_results

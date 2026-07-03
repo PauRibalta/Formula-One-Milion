@@ -1,7 +1,7 @@
 from src.models.circuit import Circuit
 
 australia = Circuit(
-    "Australia",
+    "Albert Park",
 
     0.60,  # Low Speed Importance
     0.80,  # Medium Speed Importance
@@ -33,7 +33,7 @@ australia = Circuit(
 
 
 china = Circuit(
-    "China",
+    "Shanghai International Circuit",
 
     0.55,  # Low Speed Importance
     0.80,  # Medium Speed Importance
@@ -65,7 +65,7 @@ china = Circuit(
 
 
 japan = Circuit(
-    "Japan",
+    "Suzuka",
 
     0.40,  # Low Speed Importance
     0.95,  # Medium Speed Importance
@@ -97,7 +97,7 @@ japan = Circuit(
 
 
 bahrain = Circuit(
-    "Bahrain",
+    "Sakhir",
 
     0.75,  # Low Speed Importance
     0.65,  # Medium Speed Importance
@@ -129,7 +129,7 @@ bahrain = Circuit(
 
 
 saudi_arabia = Circuit(
-    "Saudi Arabia",
+    "Jeddah",
 
     0.30,  # Low Speed Importance
     0.85,  # Medium Speed Importance
@@ -192,35 +192,35 @@ miami = Circuit(
 )
 
 
-imola = Circuit(
-    "Imola",
+canada = Circuit(
+    "Gilles Villeneuve Circuit",
 
-    0.75,  # Low Speed Importance
-    0.85,  # Medium Speed Importance
-    0.75,  # High Speed Importance
+    0.85,  # Low Speed Importance
+    0.55,  # Medium Speed Importance
+    0.45,  # High Speed Importance
 
-    0.65,  # Top Speed Importance
-    0.75,  # Acceleration Importance
+    0.95,  # Top Speed Importance
+    1.00,  # Acceleration Importance
 
-    0.80,  # Tyre Degradation
+    0.70,  # Tyre Degradation
 
-    0.65,  # Engine Stress
-    0.55,  # Cooling Requirement
+    0.80,  # Engine Stress
+    0.60,  # Cooling Requirement
 
-    0.85,  # Aerodynamics Importance
-    0.90,  # Downforce Importance
+    0.60,  # Aerodynamics Importance
+    0.55,  # Downforce Importance
 
-    0.65,  # Energy Recovery Potential
+    0.95,  # Energy Recovery Potential
 
-    0.95,  # Overtaking Difficulty
+    0.30,  # Overtaking Difficulty
 
     0.30,  # Rain Probability
 
-    0.28,  # Pit Stop Time
+    0.19,  # Pit Stop Time
 
-    0.90,  # Qualifying Importance
+    0.60,  # Qualifying Importance
 
-    0.55   # Safety Car Probability
+    0.75   # Safety Car Probability
 )
 
 
@@ -257,7 +257,7 @@ monaco = Circuit(
 
 
 barcelona = Circuit(
-    "Barcelona",
+    "Circuit de Barcelona-Catalunya",
 
     0.55,  # Low Speed Importance
     0.90,  # Medium Speed Importance
@@ -288,40 +288,8 @@ barcelona = Circuit(
 )
 
 
-canada = Circuit(
-    "Canada",
-
-    0.85,  # Low Speed Importance
-    0.55,  # Medium Speed Importance
-    0.45,  # High Speed Importance
-
-    0.95,  # Top Speed Importance
-    1.00,  # Acceleration Importance
-
-    0.70,  # Tyre Degradation
-
-    0.80,  # Engine Stress
-    0.60,  # Cooling Requirement
-
-    0.60,  # Aerodynamics Importance
-    0.55,  # Downforce Importance
-
-    0.95,  # Energy Recovery Potential
-
-    0.30,  # Overtaking Difficulty
-
-    0.30,  # Rain Probability
-
-    0.19,  # Pit Stop Time
-
-    0.60,  # Qualifying Importance
-
-    0.75   # Safety Car Probability
-)
-
-
 austria = Circuit(
-    "Austria",
+    "Red Bull Ring",
 
     0.55,  # Low Speed Importance
     0.80,  # Medium Speed Importance
@@ -352,7 +320,7 @@ austria = Circuit(
 )
 
 
-silverstone = Circuit(
+united_kingdom = Circuit(
     "Silverstone",
 
     0.50,  # Low Speed Importance
@@ -385,7 +353,7 @@ silverstone = Circuit(
 
 
 belgium = Circuit(
-    "Belgium",
+    "Spa-Francorchamps",
 
     0.45,  # Low Speed Importance
     0.80,  # Medium Speed Importance
@@ -417,7 +385,7 @@ belgium = Circuit(
 
 
 hungary = Circuit(
-    "Hungary",
+    "Hungaroring",
 
     0.90,  # Low Speed Importance
     0.80,  # Medium Speed Importance
@@ -448,7 +416,7 @@ hungary = Circuit(
 )
 
 
-zandvoort = Circuit(
+netherlands = Circuit(
     "Zandvoort",
 
     0.75,  # Low Speed Importance
@@ -480,7 +448,7 @@ zandvoort = Circuit(
 )
 
 
-monza = Circuit(
+italy = Circuit(
     "Monza",
 
     0.40,  # Low Speed Importance
@@ -513,7 +481,7 @@ monza = Circuit(
 
 
 madrid = Circuit(
-    "Madrid",
+    "Madring",
 
     0.80,  # Low Speed Importance
     0.75,  # Medium Speed Importance
@@ -545,7 +513,7 @@ madrid = Circuit(
 
 
 azerbaijan = Circuit(
-    "Azerbaijan",
+    "Bakú City Circuit",
 
     0.70,  # Low Speed Importance
     0.60,  # Medium Speed Importance
@@ -577,7 +545,7 @@ azerbaijan = Circuit(
 
 
 singapore = Circuit(
-    "Singapore",
+    "Marina Bay Street Circuit",
 
     0.95,  # Low Speed Importance
     0.60,  # Medium Speed Importance
@@ -609,7 +577,7 @@ singapore = Circuit(
 
 
 usa = Circuit(
-    "United States",
+    "Circuit of the Americas",
 
     0.65,  # Low Speed Importance
     0.85,  # Medium Speed Importance
@@ -641,7 +609,7 @@ usa = Circuit(
 
 
 mexico = Circuit(
-    "Mexico",
+    "Hermanos Rodríguez",
 
     0.70,  # Low Speed Importance
     0.75,  # Medium Speed Importance
@@ -673,7 +641,7 @@ mexico = Circuit(
 
 
 brazil = Circuit(
-    "Brazil",
+    "Interlagos",
 
     0.65,  # Low Speed Importance
     0.85,  # Medium Speed Importance
@@ -705,7 +673,7 @@ brazil = Circuit(
 
 
 las_vegas = Circuit(
-    "Las Vegas",
+    "Las Vegas Street Circuit",
 
     0.45,  # Low Speed Importance
     0.55,  # Medium Speed Importance
@@ -737,7 +705,7 @@ las_vegas = Circuit(
 
 
 qatar = Circuit(
-    "Qatar",
+    "Losail Circuit",
 
     0.45,  # Low Speed Importance
     0.90,  # Medium Speed Importance
@@ -769,7 +737,7 @@ qatar = Circuit(
 
 
 abu_dhabi = Circuit(
-    "Abu Dhabi",
+    "Yas Marina Circuit",
 
     0.65,  # Low Speed Importance
     0.75,  # Medium Speed Importance

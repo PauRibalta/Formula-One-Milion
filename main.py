@@ -5,11 +5,7 @@ from src.data.cars_data import *
 from src.data.teams_data import *
 from src.data.circuits_data import *
 
-from src.simulation.race import (
-    calculate_driver_performance,
-    calculate_car_performance,
-    calculate_team_performance
-)
+from src.simulation.season import simulate_championship
 
 
 entries = [
@@ -49,56 +45,67 @@ entries = [
 ]
 
 
-circuit = monza
+calendar = [
+    australia,
+    china,
+    japan,
+    bahrain,
+    saudi_arabia,
+    miami,
+    canada,
+    monaco,
+    barcelona,
+    austria,
+    united_kingdom,
+    belgium,
+    hungary,
+    netherlands,
+    italy,
+    madrid,
+    azerbaijan,
+    singapore,
+    usa,
+    mexico,
+    brazil,
+    las_vegas,
+    qatar,
+    abu_dhabi
+]
 
-print(f"\n========== {circuit.name.upper()} ==========\n")
 
-ranking = []
-
-for entry in entries:
-
-    driver_score = calculate_driver_performance(entry.driver)
-    car_score = calculate_car_performance(entry.car, circuit)
-    team_score = calculate_team_performance(entry.team)
-
-    final_score = (
-        driver_score * 0.5 +
-        car_score * 0.4 +
-        team_score * 0.1
-    )
-
-    ranking.append({
-        "driver": entry.driver.name,
-        "team": entry.team.name,
-        "car": driver_score,
-        "car_perf": car_score,
-        "team_perf": team_score,
-        "final": final_score
-    })
-
-ranking.sort(
-    key=lambda x: x["final"],
-    reverse=True
+championship = simulate_championship(
+    entries,
+    calendar
 )
 
-print(
-    f"{'Driver':<12}"
-    f"{'Team':<16}"
-    f"{'Driver':>10}"
-    f"{'Car':>10}"
-    f"{'Team':>10}"
-    f"{'Final':>10}"
-)
 
-print("-" * 68)
+print("\n" + "=" * 60)
+print("DRIVERS' CHAMPIONSHIP")
+print("=" * 60)
 
-for data in ranking:
+print(f"\n{'Pos':<4}{'Driver':<15}{'Points':>8}{'Wins':>8}{'Podiums':>10}")
+
+for position, driver in enumerate(championship.driver_seasons, start=1):
 
     print(
-        f"{data['driver']:<12}"
-        f"{data['team']:<16}"
-        f"{data['car']:>10.2f}"
-        f"{data['car_perf']:>10.2f}"
-        f"{data['team_perf']:>10.2f}"
-        f"{data['final']:>10.2f}"
+        f"{position:<4}"
+        f"{driver.driver.name:<15}"
+        f"{driver.points:>8}"
+        f"{driver.wins:>8}"
+        f"{driver.podiums:>10}"
+    )
+
+
+print("\n" + "=" * 60)
+print("CONSTRUCTORS' CHAMPIONSHIP")
+print("=" * 60)
+
+print(f"\n{'Pos':<4}{'Team':<18}{'Points':>8}")
+
+for position, team in enumerate(championship.team_seasons, start=1):
+
+    print(
+        f"{position:<4}"
+        f"{team.team.name:<18}"
+        f"{team.points:>8}"
     )
