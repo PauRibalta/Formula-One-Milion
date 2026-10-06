@@ -79,33 +79,66 @@ championship = simulate_championship(
 )
 
 
-print("\n" + "=" * 60)
-print("DRIVERS' CHAMPIONSHIP")
-print("=" * 60)
+for round_number, weekend in enumerate(championship.race_weekends, start=1):
 
-print(f"\n{'Pos':<4}{'Driver':<15}{'Points':>8}{'Wins':>8}{'Podiums':>10}")
+    print("\n" + "=" * 70)
+    print(f"ROUND {round_number} - {weekend.circuit.name.upper()}")
+    print("=" * 70)
 
-for position, driver in enumerate(championship.driver_seasons, start=1):
+    print("\nQUALIFYING")
 
+    for position, entry in enumerate(
+        weekend.qualifying["starting_grid"],
+        start=1
+    ):
+        print(f"P{position:>2} - {entry.driver.name}")
+
+    print("\nRACE")
+
+    for position, (driver, _, _) in enumerate(
+        weekend.race_results,
+        start=1
+    ):
+        print(f"P{position:>2} - {driver.name}")
+
+    print("\nTOP 5 CHAMPIONSHIP")
+
+    for position, driver_season in enumerate(
+        championship.driver_seasons[:5],
+        start=1
+    ):
+        print(
+            f"P{position} - "
+            f"{driver_season.driver.name:<15}"
+            f"{driver_season.points} pts"
+        )
+
+
+print("\n" + "=" * 70)
+print("FINAL CHAMPIONSHIP")
+print("=" * 70)
+
+for position, driver_season in enumerate(
+    championship.driver_seasons,
+    start=1
+):
     print(
-        f"{position:<4}"
-        f"{driver.driver.name:<15}"
-        f"{driver.points:>8}"
-        f"{driver.wins:>8}"
-        f"{driver.podiums:>10}"
+        f"P{position:>2} "
+        f"{driver_season.driver.name:<15}"
+        f"{driver_season.points:>4} pts"
     )
 
 
-print("\n" + "=" * 60)
-print("CONSTRUCTORS' CHAMPIONSHIP")
-print("=" * 60)
+print("\n" + "=" * 70)
+print("CONSTRUCTORS")
+print("=" * 70)
 
-print(f"\n{'Pos':<4}{'Team':<18}{'Points':>8}")
-
-for position, team in enumerate(championship.team_seasons, start=1):
-
+for position, team_season in enumerate(
+    championship.team_seasons,
+    start=1
+):
     print(
-        f"{position:<4}"
-        f"{team.team.name:<18}"
-        f"{team.points:>8}"
+        f"P{position:>2} "
+        f"{team_season.team.name:<20}"
+        f"{team_season.points:>4} pts"
     )

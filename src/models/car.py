@@ -29,3 +29,4 @@ class Car:
 
     hybrid_reliability: int
     energy_strategy: int
+    historical_rating: float | None = None

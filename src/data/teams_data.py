@@ -1,4 +1,8 @@
 from src.models.team import Team
+from src.data.standings_data import (
+    apply_historical_ratings,
+    team_historical_rating,
+)
 
 # MERCEDES (~98.0)
 mercedes = Team(
@@ -11,143 +15,143 @@ mercedes = Team(
     98,  # Reliability Management
     98,  # Facilities
     98,  # Wind Tunnel
-    98,  # Budget
-    97   # Winning Culture
+    97,  # Budget
+    98   # Winning Culture
 )
 
-# McLAREN (~97.3)
+# McLAREN (~95.5)
 mclaren = Team(
     "McLaren",
-    98,  # Strategy
-    97,  # Pit Stops
-    97,  # Race Operations
-    97,  # Development Rate
-    97,  # Technical Staff
-    97,  # Reliability Management
-    96,  # Facilities
-    97,  # Wind Tunnel
-    97,  # Budget
-    97   # Winning Culture
-)
-
-# RED BULL (~96.5)
-red_bull = Team(
-    "Red Bull",
-    99,   # Strategy
-    100,  # Pit Stops
-    98,   # Race Operations
-    95,   # Development Rate
-    96,   # Technical Staff
-    96,   # Reliability Management
-    95,   # Facilities
-    95,   # Wind Tunnel
-    93,   # Budget
-    98    # Winning Culture
-)
-
-# FERRARI (~95.5)
-ferrari = Team(
-    "Ferrari",
-    91,  # Strategy
-    94,  # Pit Stops
-    93,  # Race Operations
-    96,  # Development Rate
-    96,  # Technical Staff
+    96,  # Strategy
+    96,  # Pit Stops
+    95,  # Race Operations
+    95,  # Development Rate
+    95,  # Technical Staff
     95,  # Reliability Management
-    98,  # Facilities
-    98,  # Wind Tunnel
-    98,  # Budget
+    95,  # Facilities
+    96,  # Wind Tunnel
+    96,  # Budget
     96   # Winning Culture
 )
 
-# ASTON MARTIN (~91.4)
+# RED BULL (~94.0)
+red_bull = Team(
+    "Red Bull",
+    97,  # Strategy
+    98,  # Pit Stops
+    96,  # Race Operations
+    93,  # Development Rate
+    94,  # Technical Staff
+    94,  # Reliability Management
+    93,  # Facilities
+    93,  # Wind Tunnel
+    91,  # Budget
+    91   # Winning Culture
+)
+
+# FERRARI (~96.5)
+ferrari = Team(
+    "Ferrari",
+    92,  # Strategy
+    95,  # Pit Stops
+    94,  # Race Operations
+    97,  # Development Rate
+    97,  # Technical Staff
+    96,  # Reliability Management
+    99,  # Facilities
+    99,  # Wind Tunnel
+    99,  # Budget
+    97   # Winning Culture
+)
+
+# ASTON MARTIN (~84.5)
 aston_martin = Team(
     "Aston Martin",
-    89,  # Strategy
-    89,  # Pit Stops
-    90,  # Race Operations
-    93,  # Development Rate
-    95,  # Technical Staff
-    90,  # Reliability Management
-    94,  # Facilities
-    94,  # Wind Tunnel
-    94,  # Budget
-    86   # Winning Culture
+    81,  # Strategy
+    80,  # Pit Stops
+    82,  # Race Operations
+    81,  # Development Rate
+    84,  # Technical Staff
+    80,  # Reliability Management
+    82,  # Facilities
+    83,  # Wind Tunnel
+    85,  # Budget
+    80   # Winning Culture
 )
 
-# ALPINE (~88.5)
+# ALPINE (~92.5)
 alpine = Team(
     "Alpine",
-    87,  # Strategy
-    88,  # Pit Stops
-    88,  # Race Operations
-    91,  # Development Rate
-    90,  # Technical Staff
-    88,  # Reliability Management
-    89,  # Facilities
-    89,  # Wind Tunnel
-    88,  # Budget
-    87   # Winning Culture
+    93,  # Strategy
+    92,  # Pit Stops
+    92,  # Race Operations
+    94,  # Development Rate
+    93,  # Technical Staff
+    94,  # Reliability Management
+    93,  # Facilities
+    93,  # Wind Tunnel
+    93,  # Budget
+    95   # Winning Culture
 )
 
-# RACING BULLS (~87.6)
+# RACING BULLS (~93.5)
 racing_bulls = Team(
     "Racing Bulls",
-    89,  # Strategy
-    90,  # Pit Stops
-    88,  # Race Operations
-    88,  # Development Rate
-    87,  # Technical Staff
-    87,  # Reliability Management
-    87,  # Facilities
-    87,  # Wind Tunnel
-    87,  # Budget
-    86   # Winning Culture
+    95,  # Strategy
+    96,  # Pit Stops
+    94,  # Race Operations
+    94,  # Development Rate
+    93,  # Technical Staff
+    93,  # Reliability Management
+    93,  # Facilities
+    93,  # Wind Tunnel
+    93,  # Budget
+    91   # Winning Culture
 )
 
-# AUDI (~87.0)
+# AUDI (~88.0)
 audi = Team(
     "Audi",
-    86,  # Strategy
-    86,  # Pit Stops
-    86,  # Race Operations
-    88,  # Development Rate
-    87,  # Technical Staff
-    86,  # Reliability Management
-    89,  # Facilities
-    87,  # Wind Tunnel
-    90,  # Budget
-    85   # Winning Culture
-)
-
-# WILLIAMS (~86.7)
-williams = Team(
-    "Williams",
     87,  # Strategy
     87,  # Pit Stops
     87,  # Race Operations
     89,  # Development Rate
-    87,  # Technical Staff
-    86,  # Reliability Management
-    88,  # Facilities
-    87,  # Wind Tunnel
-    84,  # Budget
-    85   # Winning Culture
+    88,  # Technical Staff
+    87,  # Reliability Management
+    90,  # Facilities
+    88,  # Wind Tunnel
+    91,  # Budget
+    86   # Winning Culture
 )
 
-# HAAS (~84.0)
+# WILLIAMS (~91.5)
+williams = Team(
+    "Williams",
+    92,  # Strategy
+    92,  # Pit Stops
+    92,  # Race Operations
+    94,  # Development Rate
+    92,  # Technical Staff
+    91,  # Reliability Management
+    93,  # Facilities
+    92,  # Wind Tunnel
+    89,  # Budget
+    90   # Winning Culture
+)
+
+# HAAS (~89.0)
 haas = Team(
     "Haas",
-    84,  # Strategy
-    85,  # Pit Stops
-    84,  # Race Operations
-    84,  # Development Rate
-    83,  # Technical Staff
-    84,  # Reliability Management
-    84,  # Facilities
-    83,  # Wind Tunnel
-    85,  # Budget
-    84   # Winning Culture
+    90,  # Strategy
+    91,  # Pit Stops
+    90,  # Race Operations
+    89,  # Development Rate
+    88,  # Technical Staff
+    89,  # Reliability Management
+    89,  # Facilities
+    88,  # Wind Tunnel
+    90,  # Budget
+    86   # Winning Culture
 )
 
 # CADILLAC (~82.0)
@@ -156,11 +160,14 @@ cadillac = Team(
     81,  # Strategy
     82,  # Pit Stops
     81,  # Race Operations
-    84,  # Development Rate
-    83,  # Technical Staff
+    83,  # Development Rate
+    82,  # Technical Staff
     81,  # Reliability Management
     82,  # Facilities
-    82,  # Wind Tunnel
-    84,  # Budget
+    80,  # Wind Tunnel
+    82,  # Budget
     80   # Winning Culture
 )
+
+
+apply_historical_ratings(globals(), team_historical_rating)

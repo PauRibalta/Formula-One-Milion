@@ -1,4 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+
+
 @dataclass
 class Team:
     name: str
@@ -18,3 +20,6 @@ class Team:
     budget: int
 
     winning_culture: int
+    development_progress: float = 0.0
+    historical_rating: float | None = None
+    simulation_index: int = field(default=-1, init=False, repr=False, compare=False)

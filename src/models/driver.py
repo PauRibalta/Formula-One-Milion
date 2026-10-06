@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 @dataclass
 class Driver:
@@ -19,3 +19,5 @@ class Driver:
     control: int
     accuracy: int
     aggressiveness: int
+    historical_rating: float | None = None
+    simulation_index: int = field(default=-1, init=False, repr=False, compare=False)
